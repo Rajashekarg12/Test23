@@ -32,7 +32,7 @@
 -- ******************************************************************
 
 SET LOG CODESETS_EXP.LOG;
-SET OUTPUT dirgroups.dat;
+SET OUTPUT F:\PeopleTools\PT8.58.08_Client_ORA\data\ptupgpg.dat;
 
 EXPORT PSCODESETGROUP;
 EXPORT PSCODESETGRPVAL;
