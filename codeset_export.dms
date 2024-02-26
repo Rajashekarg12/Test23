@@ -32,7 +32,7 @@
 -- ******************************************************************
 
 SET LOG CODESETS_EXP.LOG;
-SET OUTPUT CODESETS.DAT;
+SET OUTPUT dirgroups.dat;
 
 EXPORT PSCODESETGROUP;
 EXPORT PSCODESETGRPVAL;
