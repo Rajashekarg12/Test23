@@ -1,4 +1,4 @@
 SET LOG c:\TEMP\MESSAGES_OUT.LOG;
-SET OUTPUT pslanguages.dat
+SET OUTPUT pslanguages.dat;
  
 EXPORT PSMSGCATDEFN;
