@@ -18,7 +18,7 @@
 -- *************************************************************** 
 
 SET LOG ptfra.log;
-SET INPUT F:\PeopleTools\ptclient;
+SET INPUT F:\PeopleTools\ptclient\ptfraa.db;
 
 SET UPDATE_DUPS;
 
