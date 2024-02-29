@@ -1,0 +1,4 @@
+SET LOG c:\TEMP\MESSAGES_OUT.LOG;
+SET OUTPUT /opt/oracle/psft/pt/ps_home8.58.08/pslanguages.dat;
+ 
+EXPORT PSMSGCATDEFN;
