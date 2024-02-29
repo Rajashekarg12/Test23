@@ -1,4 +1,4 @@
 
-SET OUTPUT pslanguages1.dat;
+SET OUTPUT pslanguages5.dat;
  
 EXPORT PSMSGCATDEFN;
