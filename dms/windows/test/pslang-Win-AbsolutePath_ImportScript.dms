@@ -1,0 +1,6 @@
+SET LOG c:\TEMP\MESSAGES_OUT.LOG;
+SET INPUT  F:\PeopleTools\ptclient\pslanguages.dat;
+
+SET UPDATE_DUPS;
+ 
+IMPORT PSMSGCATDEFN;
