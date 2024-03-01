@@ -1,0 +1,65 @@
+-- ***************************************************************
+--  This software and related documentation are provided under a
+--  license agreement containing restrictions on use and
+--  disclosure and are protected by intellectual property
+--  laws. Except as expressly permitted in your license agreement
+--  or allowed by law, you may not use, copy, reproduce,
+--  translate, broadcast, modify, license, transmit, distribute,
+--  exhibit, perform, publish or display any part, in any form or
+--  by any means. Reverse engineering, disassembly, or
+--  decompilation of this software, unless required by law for
+--  interoperability, is prohibited.
+--  The information contained herein is subject to change without
+--  notice and is not warranted to be error-free. If you find any
+--  errors, please report them to us in writing.
+--  
+--  Copyright (C) 1988, 2021, Oracle and/or its affiliates.
+--  All Rights Reserved.
+-- ***************************************************************
+ 
+ 
+--                                                                    
+--  ******************************************************************
+--  ******************************************************************
+--
+--  SourceSafe Information:
+--
+--  $Header:: /pt843/SCRIPTS/BSE/exproles.dms 4     2/19/03 11:59p P $
+--
+--  ******************************************************************
+--  This script exports Roles specified in a Project.
+--
+--  Notes: This script cannot be executed in boot strap mode.
+--
+--         Before running this script, fill in the name of the
+--         Project that contains the Roles to be exported.
+--
+--  Related Scripts:
+--    exprole.dms  - exports one Role
+--    exproles.dms - exports Roles specified in a Project
+--    improles.dms - imports Role(s)
+--  ******************************************************************
+
+SET LOG EXPROLES.LOG;
+SET OUTPUT ROLES.DAT;
+
+EXPORT PSROLEDEFN WHERE ROLENAME IN
+ (SELECT OBJECTVALUE1 FROM PSPROJECTITEM
+   WHERE PROJECTNAME='------------------------------'
+     AND OBJECTTYPE=19);
+
+EXPORT PSROLEDEFNLANG WHERE ROLENAME IN
+ (SELECT OBJECTVALUE1 FROM PSPROJECTITEM
+   WHERE PROJECTNAME='------------------------------'
+     AND OBJECTTYPE=19);
+
+EXPORT PSROLECANGRANT WHERE ROLENAME IN
+ (SELECT OBJECTVALUE1 FROM PSPROJECTITEM
+   WHERE PROJECTNAME='------------------------------'
+     AND OBJECTTYPE=19);
+
+EXPORT PSROLECLASS WHERE ROLENAME IN
+ (SELECT OBJECTVALUE1 FROM PSPROJECTITEM
+   WHERE PROJECTNAME='------------------------------'
+     AND OBJECTTYPE=19);
+
