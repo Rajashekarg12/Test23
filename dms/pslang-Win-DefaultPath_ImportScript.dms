@@ -1,5 +1,5 @@
 SET LOG c:\TEMP\MESSAGES_OUT.LOG;
-SET INPUT pslanguages.dat;
+SET INPUT pslanguages5.dat;
 
 SET UPDATE_DUPS;
  
