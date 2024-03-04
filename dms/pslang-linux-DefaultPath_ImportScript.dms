@@ -1,4 +1,4 @@
-SET LOG  /opt/oracle/psft/pt/ps_home8.58.08\Rj-imp-MESSAGES_OUT.LOG;
+SET LOG  Rj-imp-MESSAGES_OUT.LOG;
 SET INPUT pslanguages5.dat;
 
 SET UPDATE_DUPS;
