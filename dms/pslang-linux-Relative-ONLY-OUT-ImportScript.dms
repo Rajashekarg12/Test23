@@ -1,0 +1,3 @@
+SET INPUT pslanguage10.dat;
+ 
+IMPORT PSMSGCATDEFN;

@@ -1,0 +1,4 @@
+
+SET OUTPUT pslanguage10.dat;
+ 
+EXPORT PSMSGCATDEFN;
