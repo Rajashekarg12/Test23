@@ -1,0 +1,3 @@
+SET INPUT /opt/oracle/psft/pt/ps_home8.58.08/pslanguage9.dat;
+ 
+IMPORT PSMSGCATDEFN;
