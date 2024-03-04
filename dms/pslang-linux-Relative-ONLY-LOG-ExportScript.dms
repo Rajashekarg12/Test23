@@ -1,0 +1,4 @@
+
+SET LOG pslanguagelog10.log;
+ 
+EXPORT PSMSGCATDEFN;
