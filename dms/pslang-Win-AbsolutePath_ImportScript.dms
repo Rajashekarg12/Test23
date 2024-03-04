@@ -1,5 +1,5 @@
 SET LOG c:\TEMP\absolute-win-import-MESSAGES_OUT.LOG;
-set input  F:\PeopleTools\ptclient\pslanguages1.dat;
+set input F:\PeopleTools\ptclient\pslanguages1.dat;
 
 SET UPDATE_DUPS;
  
