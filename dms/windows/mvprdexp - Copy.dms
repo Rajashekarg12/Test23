@@ -26,7 +26,7 @@
 --  ******************************************************************
 
 SET LOG MVPRDEXP1.LOG;
-SET OUTPUT SET OUTPUT F:\flexdeploy\fdtlt86\work\92441\11635\temp\MVPRDP1.DAT;
+SET OUTPUT  F:\flexdeploy\fdtlt86\work\92441\11635\temp\MVPRDP1.DAT;
 
 EXPORT PSACCESSPROFILE;
 EXPORT PSACCESSPRFL;
