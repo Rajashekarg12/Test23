@@ -1,4 +1,6 @@
-SET LOG c:\TEMP\RJ-Exp-MESSAGES_OUT.LOG;
+
 set output pslanguages5.dat;
+
+SET LOG c:\TEMP\RJ-Exp-MESSAGES_OUT.LOG;
  
 EXPORT PSMSGCATDEFN;
