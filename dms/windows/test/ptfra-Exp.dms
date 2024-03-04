@@ -5,4 +5,4 @@ SET OUTPUT ptfraa.db;
 
 
 
-EXPORT GPCH_TX_RATES ;
+EXPORT * ;
