@@ -33,6 +33,7 @@
 
 SET OUTPUT perfdata.dat;
 SET LOG perfexportlog.txt;
+SET OUTPUT perfdata2.dat;
 
 -- ******************************************************************
 -- Instructions:
