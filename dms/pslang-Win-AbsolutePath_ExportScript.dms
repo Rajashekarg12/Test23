@@ -1,4 +1,7 @@
 SET LOG c:\TEMP\absolute-win-export-MESSAGES_OUT.LOG;
-SET Output F:\PeopleTools\ptclient\pslanguages1.dat;
+SET Output F:\PeopleTools\ptclient\pslanguages88.dat;
  
+EXPORT PSMSGCATDEFN;
+
+SET Output F:\PeopleTools\ptclient\pslanguages99.dat;
 EXPORT PSMSGCATDEFN;
