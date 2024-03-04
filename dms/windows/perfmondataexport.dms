@@ -1,0 +1,187 @@
+-- ***************************************************************
+--  This software and related documentation are provided under a
+--  license agreement containing restrictions on use and
+--  disclosure and are protected by intellectual property
+--  laws. Except as expressly permitted in your license agreement
+--  or allowed by law, you may not use, copy, reproduce,
+--  translate, broadcast, modify, license, transmit, distribute,
+--  exhibit, perform, publish or display any part, in any form or
+--  by any means. Reverse engineering, disassembly, or
+--  decompilation of this software, unless required by law for
+--  interoperability, is prohibited.
+--  The information contained herein is subject to change without
+--  notice and is not warranted to be error-free. If you find any
+--  errors, please report them to us in writing.
+--  
+--  Copyright (C) 1988, 2019, Oracle and/or its affiliates.
+--  All Rights Reserved.
+-- ***************************************************************
+ 
+ 
+--                                                                    
+--  ******************************************************************
+--  ******************************************************************
+--
+--  $Header::                                                                             $
+--
+--  ******************************************************************
+--  This script is used to export performance data from a PeopleTools
+--  database used by the Monitoring System. The data can be exported
+--  based on a specific System ID, between specific datetimes or
+--  associated with a performance trace.
+--  ******************************************************************
+
+SET OUTPUT perfdata.dat;
+SET LOG perfexportlog.txt;
+
+-- ******************************************************************
+-- Instructions:
+-- The Export script may be used to export data
+-- a) belonging to a particular system or
+-- b) collected between specific datetimes or
+-- c) associated with a performance trace
+-- Option (a) is the default.  To use Option (b) or Option (c),
+-- comment out the lines under Option (a) and uncomment  
+-- the lines under Option (b) or Option (c).  The script will fail
+-- if more than one option is uncommented. 
+-- Replace the default System Id value of 9999 with a valid Performance 
+-- System ID. 
+-- System ID can be looked up in the Performance Monitor 
+-- Administration pages.                                                                            
+-- The statements that export data from the Archive tables         
+-- are commented. Uncomment the lines to include                    
+-- data from the Archive tables                                              
+-- ******************************************************************
+
+-- ******************************************************************
+-- Export Definitional Elements
+-- ******************************************************************
+-- If all the systems need to be exported delete the "WHERE" clause
+EXPORT PSPMSYSDEFN WHERE PM_SYSTEMID=9999;
+EXPORT PSPMSYSVERSION WHERE PM_SYSTEMID=9999;
+EXPORT PSPMAGENTFILTER WHERE PM_SYSTEMID=9999;
+EXPORT PSPMAGENT WHERE PM_SYSTEMID=9999;
+
+-- ******************************************************************
+-- OPTION a - Export data belonging to a particular system
+-- ******************************************************************
+-- REPLACE DEFAULT SYSTEM ID 9999 WITH A VALID SYSTEM ID OF A MONITORING SYSTEM
+-- IT IS THE VALUE OF THE "System Identifier" FIELD IN THE SYSTEM DEFINITIONS PAGE.
+-- THE DATA EXPORTED CAN BE NARROWED DOWN FURTHER BY SPECIFYING
+-- A DATE TIME RANGE.
+
+-- Export Data from the PMU Current Table
+EXPORT PSPMTRANSCURR WHERE 
+PM_TRANS_DELETED='N' AND
+PM_AGENTID IN (SELECT PM_AGENTID FROM PSPMAGENT WHERE PM_SYSTEMID=9999);
+
+-- Export Data from the PMU History Table
+EXPORT PSPMTRANSHIST WHERE 
+PM_AGENTID IN (SELECT PM_AGENTID FROM PSPMAGENT WHERE PM_SYSTEMID=9999);
+
+-- Export Data from the Event History Table
+EXPORT PSPMEVENTHIST WHERE 
+PM_AGENTID IN (SELECT PM_AGENTID FROM PSPMAGENT WHERE PM_SYSTEMID=9999);
+
+-- Export Data from the Harvested Data Table
+EXPORT PSPMHARVESTDATA WHERE 
+PM_AGENTID IN (SELECT PM_AGENTID FROM PSPMAGENT WHERE PM_SYSTEMID=9999);
+
+-- Export Data from the Alert Table
+EXPORT PSPMALERTLOG WHERE 
+PM_AGENTID IN (SELECT PM_AGENTID FROM PSPMAGENT WHERE PM_SYSTEMID=9999);
+
+-- Export Data from the Alert Properties Table
+EXPORT PSPMALERTPROPS WHERE 
+PM_INSTANCE_ID IN (SELECT PM_INSTANCE_ID FROM PSPMALERTLOG WHERE
+PM_AGENTID IN (SELECT PM_AGENTID FROM PSPMAGENT WHERE PM_SYSTEMID=9999));
+
+-- Export Data from the PMU Archive Table
+-- Uncomment if Archive data needs to be included
+-- EXPORT PSPMTRANSARCH WHERE 
+-- PM_AGENTID IN (SELECT PM_AGENTID FROM PSPMAGENT WHERE PM_SYSTEMID=9999);
+
+-- Export Data from the Event Archive Table
+-- Uncomment if Archive data needs to be included
+-- EXPORT PSPMEVENTARCH WHERE 
+-- PM_AGENTID IN (SELECT PM_AGENTID FROM PSPMAGENT WHERE PM_SYSTEMID=9999);
+
+-- ******************************************************************
+-- Option b - Export data collected between specific datetimes
+-- ******************************************************************
+-- REPLACE DEFAULT SYSTEM ID 9999 WITH A VALID SYSTEM ID OF A MONITORING SYSTEM
+-- IT IS THE VALUE OF THE "System Identifier" FIELD IN THE SYSTEM DEFINITIONS PAGE.
+-- THE DATE TIMES MUST BE SPECIFIED IN THE YYYY-MM-DD-hh-mm-ss.ssssss FORMAT
+-- FOR EXAMPLE 2003-12-02-11.00.00.000000
+-- CHANGE THE DATETIME VALUE TO SUIT YOUR NEEDS
+
+-- Export Data from the PMU Current Table
+-- EXPORT PSPMTRANSCURR WHERE 
+-- PM_MON_STRT_DTTM >= %DATETIMEIN('<DATETIME VALUE>') AND 
+-- PM_MON_STRT_DTTM <= %DATETIMEIN('<DATETIME VALUE>') AND
+-- PM_TRANS_DELETED='N' AND
+-- PM_AGENTID IN (SELECT PM_AGENTID FROM PSPMAGENT WHERE PM_SYSTEMID=9999);
+
+-- Export Data from the PMU History Table
+-- EXPORT PSPMTRANSHIST WHERE 
+-- PM_MON_STRT_DTTM >= %DATETIMEIN('<DATETIME VALUE>') AND 
+-- PM_MON_STRT_DTTM <= %DATETIMEIN('<DATETIME VALUE>') AND
+-- PM_AGENTID IN (SELECT PM_AGENTID FROM PSPMAGENT WHERE PM_SYSTEMID=9999);
+
+-- Export Data from the Event History Table
+-- EXPORT PSPMEVENTHIST WHERE 
+-- PM_MON_DTTM >= %DATETIMEIN('<DATETIME VALUE>') AND 
+-- PM_MON_DTTM <= %DATETIMEIN('<DATETIME VALUE>') AND
+-- PM_AGENTID IN (SELECT PM_AGENTID FROM PSPMAGENT WHERE PM_SYSTEMID=9999);
+
+-- Export Data from the PMU Archive Table
+-- Uncomment if Archive data needs to be included
+-- EXPORT PSPMTRANSARCH WHERE 
+-- PM_MON_STRT_DTTM >= %DATETIMEIN('<DATETIME VALUE>') AND 
+-- PM_MON_STRT_DTTM <= %DATETIMEIN('<DATETIME VALUE>') AND
+-- PM_AGENTID IN (SELECT PM_AGENTID FROM PSPMAGENT WHERE PM_SYSTEMID=9999);
+
+-- Export Data from the Event Archive Table
+-- Uncomment if Archive data needs to be included
+-- EXPORT PSPMEVENTARCH WHERE 
+-- PM_MON_DTTM >= %DATETIMEIN('<DATETIME VALUE>') AND 
+-- PM_MON_DTTM <= %DATETIMEIN('<DATETIME VALUE>') AND
+-- PM_AGENTID IN (SELECT PM_AGENTID FROM PSPMAGENT WHERE PM_SYSTEMID=9999);
+
+-- Export Data from the Harvested Data Table
+-- EXPORT PSPMHARVESTDATA WHERE 
+-- PM_AGENT_DTTM >= %DATETIMEIN('<DATETIME VALUE>') AND 
+-- PM_AGENT_DTTM <= %DATETIMEIN('<DATETIME VALUE>') AND
+-- PM_AGENTID IN (SELECT PM_AGENTID FROM PSPMAGENT WHERE PM_SYSTEMID=9999);
+
+-- Export Data from the Alert Table
+-- EXPORT PSPMALERTLOG WHERE 
+-- PM_AGENT_DTTM >= %DATETIMEIN('<DATETIME VALUE>') AND 
+-- PM_AGENT_DTTM <= %DATETIMEIN('<DATETIME VALUE>') AND
+-- PM_AGENTID IN (SELECT PM_AGENTID FROM PSPMAGENT WHERE PM_SYSTEMID=9999);
+
+-- Export Data from the Alert Properties Table
+-- EXPORT PSPMALERTPROPS WHERE 
+-- PM_AGENT_DTTM >= %DATETIMEIN('<DATETIME VALUE>') AND 
+-- PM_AGENT_DTTM <= %DATETIMEIN('<DATETIME VALUE>') AND
+-- PM_INSTANCE_ID IN (SELECT PM_INSTANCE_ID FROM PSPMALERTLOG WHERE
+-- PM_AGENTID IN (SELECT PM_AGENTID FROM PSPMAGENT WHERE PM_SYSTEMID=9999));
+
+-- ******************************************************************
+-- Option c - Export data associated with a performance trace
+-- ******************************************************************
+
+-- CHANGE THE <Trace Name> TO THE PERFORMANCE TRACE NAME
+
+-- Export Data from the PMU Current Table
+-- EXPORT PSPMTRANSCURR WHERE 
+-- PM_PERF_TRACE='<Trace Name>' AND PM_TRANS_DELETED='N';
+
+-- Export Data from the PMU History Table
+-- EXPORT PSPMTRANSHIST WHERE 
+-- PM_PERF_TRACE='<Trace Name>';
+
+-- Export Data from the PMU Archive Table
+-- Uncomment if Archive data needs to be included
+-- EXPORT PSPMTRANSARCH WHERE 
+-- PM_PERF_TRACE='<Trace Name>';
