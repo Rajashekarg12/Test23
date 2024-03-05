@@ -1,4 +1,5 @@
 SET LOG c:\TEMP\absolute-win-export-MESSAGES_OUT.LOG;
+SET OUTPUT c:\TEMP\absolute.DAT;
 
  
 EXPORT PSMSGCATDEFN;
