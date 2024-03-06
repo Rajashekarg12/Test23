@@ -1,0 +1,5 @@
+SET INPUT  F:\PeopleTools\ptclient\pslanguages.dat;
+
+SET UPDATE_DUPS;
+ 
+IMPORT PSMSGCATDEFN;
