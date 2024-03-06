@@ -1,8 +1,6 @@
 
 
-SET LOG ptfra.log;
-SET INPUT ptfraa.db;
 
-SET UPDATE_DUPS;
-
-IMPORT * ;
+SET LOG /opt/oracle/psft/pt/ps_home8.58.08/2MESSAGES_OUT.LOG;
+ 
+IMPORT PSMSGCATDEFN;
