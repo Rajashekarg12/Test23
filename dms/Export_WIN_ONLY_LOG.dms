@@ -1,0 +1,2 @@
+SET LOG test.log;
+EXPORT PSMSGCATDEFN;
