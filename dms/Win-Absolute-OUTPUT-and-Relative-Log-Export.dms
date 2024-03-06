@@ -1,0 +1,4 @@
+SET LOG pslanguages1.log;
+SET OUTPUT F:\PeopleTools\ptclient\pslanguages.dat;
+ 
+EXPORT PSMSGCATDEFN;
