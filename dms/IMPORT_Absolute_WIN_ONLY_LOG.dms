@@ -1,0 +1,4 @@
+SET LOG F:\PeopleTools\ptclient\test.log;
+SET UPDATE_DUPS;
+ 
+IMPORT PSMSGCATDEFN;

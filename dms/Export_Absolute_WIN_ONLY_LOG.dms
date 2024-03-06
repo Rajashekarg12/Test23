@@ -1,0 +1,2 @@
+SET LOG F:\PeopleTools\ptclient\test.log;
+EXPORT PSMSGCATDEFN;
