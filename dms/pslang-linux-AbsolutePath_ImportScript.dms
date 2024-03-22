@@ -3,4 +3,4 @@ SET INPUT /opt/oracle/psft/pt/ps_home8.58.08/pslanguages1.dat;
 
 SET UPDATE_DUPS;
  
-IMPORT PSMSGCATDEFN;
+REPLACE_ALL PSMSGCATDEFN;
