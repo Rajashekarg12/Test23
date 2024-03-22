@@ -1,0 +1,4 @@
+SET LOG c:\TEMP\MESSAGES_OUT.LOG;
+set output pslanguages1.dat;
+ 
+EXPORT PSMSGCATDEFN;
