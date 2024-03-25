@@ -18,4 +18,4 @@
 -- ************************************************************  
 set log eodp_sysdata_exp.log;
 set input eodp_sysdata.dat;
-Replace_all EODP_RECFLD_SYS AS new_EODP_RECFLD_SYS;
+REPLACE_DATA EODP_RECFLD_SYS AS new_EODP_RECFLD_SYS;
