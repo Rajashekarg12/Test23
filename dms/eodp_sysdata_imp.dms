@@ -14,8 +14,9 @@
 -- errors, please report them to us in writing.                  
 --                                                               
 -- Copyright (C) 1988, 2018, Oracle and/or its affiliates.       
--- All Rights Reserved.                                          
+-- All Rights Reserved.  
+-- REPLACE_DATA EODP_RECFLD_SYS AS new_EODP_RECFLD_SYS;
 -- ************************************************************  
 set log eodp_sysdata_exp.log;
 set input eodp_sysdata.dat;
-REPLACE_DATA EODP_RECFLD_SYS AS new_EODP_RECFLD_SYS;
+
