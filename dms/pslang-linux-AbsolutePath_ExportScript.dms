@@ -1,4 +1,4 @@
 SET LOG /opt/oracle/psft/pt/ps_home8.58.08/MESSAGES_OUT.LOG;
 set output /opt/oracle/psft/pt/ps_home8.58.08/pslanguages1.dat;
  
-EXPORT PSMSGCATDEFN-656555;
+EXPORT PSMSGCATDEFN;
