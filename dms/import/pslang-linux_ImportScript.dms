@@ -1,6 +1,5 @@
-SET LOG MESSAGES_OUT.LOG;
 SET INPUT pslanguages1.dat;
 
 SET UPDATE_DUPS;
  
-Import PSMSGCATDEFN;
+import *.*;
