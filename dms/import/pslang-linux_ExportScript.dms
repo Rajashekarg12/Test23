@@ -1,4 +1,4 @@
 SET LOG MESSAGES_OUT.LOG;
 set output pslanguages1.dat;
  
-EXPORT PSDBOWNER;
+EXPORT *;
