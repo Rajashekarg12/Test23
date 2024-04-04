@@ -2,4 +2,4 @@ SET LOG F:\TEMP\MESSAGES_OUT.LOG;
 SET OUTPUT F:\PeopleTools\ptclient\pslanguages.dat;
  
 
-EXPORT *;
+EXPORT PSMSGCATDEFN;
