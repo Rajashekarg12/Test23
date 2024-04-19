@@ -1,2 +1,2 @@
-select * from FD.cms1;
+select * from FD.cms;
 --SELECT 'Hello world' FROM DUAL
