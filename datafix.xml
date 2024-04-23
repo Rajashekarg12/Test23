@@ -1,6 +1,7 @@
 <DataFix xmlns="http://flexagon.com/database/datafix">
     <Description>Fix total_price on order_header</Description>
-    <FixSQL>update order_header set total_price = 250 where order_id = 1;</FixSQL>
+    <FixSQL>UPDATE FD.PIPELINE_ROLE_MEMBER  SET EMAIL_ADDRESS = 'sqltest'
+      WHERE PIPELINE_ROLE_MEMBER_ID = 24911;</FixSQL>
     <BackupSQL>create table order_header_bkp as (select * from order_header)</BackupSQL>
     <Validations>
         <Validation>
