@@ -1,6 +1,6 @@
 <DataFix xmlns="https://flexagon.com/database/datafix"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="https://flexagon.com/database/datafix D:\Datafix.xsd">
+         xsi:schemaLocation="https://flexagon.com/database/datafix file:///D:/Datafix.xsd">
   <Description>Update email address for a pipeline role member</Description>
   <FixSQL>
     <![CDATA[
