@@ -1,12 +1,41 @@
-<datafix>
-    <description>Update email address for a pipeline role member</description>
-    <fix>
-        <query>
-            <![CDATA[
-                UPDATE FD.PIPELINE_ROLE_MEMBER
-                SET EMAIL_ADDRESS = 'sqltest'
-                WHERE PIPELINE_ROLE_MEMBER_ID = 24911;
-            ]]>
-        </query>
-    </fix>
-</datafix>
+<DataFix xmlns="https://flexagon.com/database/datafix">
+  <Description>Update email address for a pipeline role member</Description>
+  <FixSQL>
+    <![CDATA[
+      UPDATE FD.PIPELINE_ROLE_MEMBER
+      SET EMAIL_ADDRESS = 'sqltest'
+      WHERE PIPELINE_ROLE_MEMBER_ID = 24911;
+    ]]>
+  </FixSQL>
+  <BackupSQL>
+    <![CDATA[
+      -- Example backup SQL
+      -- You can include backup queries here
+    ]]>
+  </BackupSQL>
+  <Validations>
+    <Validation>
+      <Description>Verify email address was updated for member ID 24911</Description>
+      <ValidationSQL>
+        <![CDATA[
+          SELECT COUNT(*)
+          FROM FD.PIPELINE_ROLE_MEMBER
+          WHERE EMAIL_ADDRESS = 'sqltest'
+          AND PIPELINE_ROLE_MEMBER_ID = 24911;
+        ]]>
+      </ValidationSQL>
+      <Environment>
+        <EnvironmentCode>DEV</EnvironmentCode>
+        <UpdateCount>
+          <EqualTo>1</EqualTo>
+        </UpdateCount>
+      </Environment>
+      <Environment>
+        <EnvironmentCode>default</EnvironmentCode>
+        <UpdateCount>
+          <EqualTo>1</EqualTo>
+        </UpdateCount>
+      </Environment>
+    </Validation>
+  </Validations>
+</DataFix>
