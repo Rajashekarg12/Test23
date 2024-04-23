@@ -1,0 +1,12 @@
+<datafix>
+    <description>Update email address for a pipeline role member</description>
+    <fix>
+        <query>
+            <![CDATA[
+                UPDATE FD.PIPELINE_ROLE_MEMBER
+                SET EMAIL_ADDRESS = 'sqltest'
+                WHERE PIPELINE_ROLE_MEMBER_ID = 24911;
+            ]]>
+        </query>
+    </fix>
+</datafix>
