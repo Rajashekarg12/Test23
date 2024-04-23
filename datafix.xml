@@ -9,7 +9,7 @@
     <Validations>
         <Validation>
             <Description>Ensure email address is updated</Description>
-            <ValidationSQL>SELECT COUNT(*) FROM FD.PIPELINE_ROLE_MEMBER WHERE EMAIL_ADDRESS = 'sqltest' AND PIPELINE_ROLE_MEMBER_ID = 24911;</ValidationSQL>
+            <ValidationSQL>SELECT COUNT(*) FROM FD.PIPELINE_ROLE_MEMBER WHERE EMAIL_ADDRESS = 'sqltest' AND PIPELINE_ROLE_MEMBER_ID = 24911</ValidationSQL>
             <Environment>
                 <EnvironmentCode>DEFAULT</EnvironmentCode>
                 <Before>
