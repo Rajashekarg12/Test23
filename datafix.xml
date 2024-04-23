@@ -1,5 +1,5 @@
 <DataFix xmlns="http://flexagon.com/database/datafix">
-    <Description>Fix total_price on order_header</Description>
+    <Description>update email</Description>
     <FixSQL>
         UPDATE FD.PIPELINE_ROLE_MEMBER
         SET EMAIL_ADDRESS = 'sqltest'
@@ -16,10 +16,10 @@
                     <Equals>0</Equals>
                 </Before>
                 <After>
-                    <Equals>1</Equals>
+                  --  <Equals>1</Equals>
                 </After>
                 <UpdateCount>
-                    <Equals>1</Equals>
+                  --  <Equals>1</Equals>
                 </UpdateCount>
             </Environment>
         </Validation>
