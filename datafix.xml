@@ -11,7 +11,7 @@
             <Description></Description>
             <ValidationSQL></ValidationSQL>
             <Environment>
-                <EnvironmentCode>9995</EnvironmentCode>
+                <EnvironmentCode>DEFAULT</EnvironmentCode>
                 <Before>
                     <Equals>0</Equals>
                 </Before>
