@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<DataFix xmlns="https://flexagon.com/database/datafix">
+<DataFix xmlns="https://flexagon.com/database/datafix"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://flexagon.com/database/datafix D:\Datafix.xsd">
   <Description>Update email address for a pipeline role member</Description>
   <FixSQL>
     <![CDATA[
@@ -7,5 +8,5 @@
       SET EMAIL_ADDRESS = 'sqltest'
       WHERE PIPELINE_ROLE_MEMBER_ID = 24911;
     ]]>
-  </FixSQL>   
+  </FixSQL>
 </DataFix>
