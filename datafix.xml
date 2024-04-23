@@ -2,7 +2,7 @@
     <Description>Fix total_price on order_header</Description>
     <FixSQL>UPDATE FD.PIPELINE_ROLE_MEMBER  SET EMAIL_ADDRESS = 'sqltest'
       WHERE PIPELINE_ROLE_MEMBER_ID = 24911;</FixSQL>
-    <BackupSQL>create table order_header_bkp as (select * from order_header)</BackupSQL>
+    <BackupSQL></BackupSQL>
     <Validations>
         <Validation>
             <Description>Make sure order_header total_price is equal to the line_item total</Description>
