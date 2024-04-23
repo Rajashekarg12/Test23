@@ -8,7 +8,7 @@
     <BackupSQL></BackupSQL>
     <Validations>
         <Validation>
-            <Description>Make sure order_header total_price is equal to the line_item total</Description>
+            <Description></Description>
             <ValidationSQL></ValidationSQL>
             <Environment>
                 <EnvironmentCode>9995</EnvironmentCode>
