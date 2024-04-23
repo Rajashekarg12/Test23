@@ -1,5 +1,5 @@
 <DataFix xmlns="http://flexagon.com/database/datafix">
-    <Description>update email</Description>
+    <Description>Update email</Description>
     <FixSQL>
         UPDATE FD.PIPELINE_ROLE_MEMBER
         SET EMAIL_ADDRESS = 'sqltest'
@@ -8,18 +8,18 @@
     <BackupSQL></BackupSQL>
     <Validations>
         <Validation>
-            <Description></Description>
-            <ValidationSQL></ValidationSQL>
+            <Description>Ensure email address is updated</Description>
+            <ValidationSQL>SELECT COUNT(*) FROM FD.PIPELINE_ROLE_MEMBER WHERE EMAIL_ADDRESS = 'sqltest' AND PIPELINE_ROLE_MEMBER_ID = 24911;</ValidationSQL>
             <Environment>
                 <EnvironmentCode>DEFAULT</EnvironmentCode>
                 <Before>
-          
+                    <Equals>0</Equals>
                 </Before>
                 <After>
-      
+                    <Equals>1</Equals>
                 </After>
                 <UpdateCount>
-           
+                    <Equals>1</Equals>
                 </UpdateCount>
             </Environment>
         </Validation>
