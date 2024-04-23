@@ -2,6 +2,24 @@
 <DataFix xmlns="http://flexagon.com/database/datafix">
     <Description>Fix total_price on order_header</Description>
     <FixSQL>update order_header set total_price = 250 where order_id = 1;</FixSQL>
-   
-    
+    <BackupSQL>create table order_header_bkp as (select * from order_header)</BackupSQL>
+    <Validations>
+        <Validation>
+            <Description>Make sure order_header total_price is equal to the line_item total</Description>
+            <ValidationSQL></ValidationSQL>
+            <Environment>
+                <EnvironmentCode>9995</EnvironmentCode>
+                <Before>
+                    <Equals>0</Equals>
+                </Before>
+                <After>
+                    <Equals>1</Equals>
+                </After>
+                <UpdateCount>
+                    <Equals>1</Equals>
+                </UpdateCount>
+            </Environment>
+            </Environment>
+        </Validation>
+    </Validations>
 </DataFix>
